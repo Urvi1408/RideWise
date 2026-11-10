@@ -13,5 +13,15 @@ class Cab
     string registrationNumber;
     int capacity;
     bool available;
-    
-}
+
+    public:
+    Cab(int id,string m,string reg,int cap);
+    int getID();
+    string getModel();
+    int getCapacity();
+    bool isAvailable();
+    void setAvailability(bool status);
+    void displayDetails();
+};
+
+#endif

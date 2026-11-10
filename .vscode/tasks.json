@@ -13,6 +13,9 @@
                 "${workspaceFolder}/main.cpp",
                 "${workspaceFolder}/classes/Passenger.cpp",
                 "${workspaceFolder}/classes/Driver.cpp",
+                "${workspaceFolder}/classes/Cab.cpp",
+                "${workspaceFolder}/classes/Ride.cpp",
+                "${workspaceFolder}/classes/RideRequest.cpp",
                 "-o",
                 "${workspaceFolder}/RideWise.exe"
             ],
