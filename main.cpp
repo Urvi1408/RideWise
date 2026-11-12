@@ -1,47 +1,22 @@
-
 #include <iostream>
-
-#include "classes/Passenger.h"
-#include "classes/Driver.h"
-#include "classes/Cab.h"
-#include "classes/Ride.h"
-#include "classes/RideRequest.h"
+#include "algorithms/Graph.h"
 
 using namespace std;
 
 int main() {
 
-    Passenger p1(101, "Urvi", "Noida", "Delhi");
+    Graph city;
 
-    Driver d1(201, "Rahul", "9239399393");
+    city.addRoad("Noida", "Delhi", 15);
+    city.addRoad("Noida", "Ghaziabad", 12);
+    city.addRoad("Delhi", "Faridabad", 20);
+    city.addRoad("Ghaziabad", "Delhi", 18);
+    city.addRoad("Noida", "Greater Noida", 10);
+    city.addRoad("Greater Noida", "Delhi", 25);
 
-    Cab c1(301, "Swift Dzire", "DL8CAF1234", 4);
+    cout << "===== RIDEWISE CITY GRAPH =====\n";
 
-    Ride r1(401, 101, 201, 301,
-            "Noida", "Delhi", 500);
-
-    RideRequest req1(501, 101,
-                     "Noida", "Delhi", 1, 10);
-
-    cout << "\n===== PASSENGER =====";
-    p1.displayDetails();
-
-    cout << "\n===== DRIVER =====";
-    d1.displayDetails();
-
-    cout << "\n===== CAB =====";
-    c1.displayDetails();
-
-    cout << "\n===== RIDE =====";
-    r1.displayDetails();
-
-    r1.setStatus(RideStatus::Ongoing);
-
-    cout << "\n===== UPDATED RIDE =====";
-    r1.displayDetails();
-
-    cout << "\n===== RIDE REQUEST =====";
-    req1.displayDetails();
+    city.displayGraph();
 
     return 0;
 }

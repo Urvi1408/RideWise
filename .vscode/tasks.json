@@ -16,6 +16,7 @@
                 "${workspaceFolder}/classes/Cab.cpp",
                 "${workspaceFolder}/classes/Ride.cpp",
                 "${workspaceFolder}/classes/RideRequest.cpp",
+                "${workspaceFolder}/algorithms/Graph.cpp",
                 "-o",
                 "${workspaceFolder}/RideWise.exe"
             ],

@@ -1,0 +1,11 @@
+# Executables and compiled files
+*.exe
+*.o
+*.dll
+
+# Large road network dataset
+data/raw/*.gpkg
+
+# Temporary IDE files
+.vscode/.browse.VC.db
+.vscode/ipch/
