@@ -328,3 +328,38 @@ int Graph::findNearestNode(double longitude, double latitude) const {
 
     return nearest;
 }
+
+double Graph::getDistanceToNearestNode(
+    double longitude,
+    double latitude
+) const {
+
+    int nearestNode = findNearestNode(longitude, latitude);
+
+    if (nearestNode == -1) {
+        return -1.0;
+    }
+
+    const Node& node = nodes[nearestNode];
+
+    const double earthRadius = 6371000.0;
+    const double PI = 3.14159265358979323846;
+
+    double lat1 = latitude * PI / 180.0;
+    double lat2 = node.latitude * PI / 180.0;
+
+    double deltaLat =
+        (node.latitude - latitude) * PI / 180.0;
+
+    double deltaLon =
+        (node.longitude - longitude) * PI / 180.0;
+
+    double a =
+        sin(deltaLat / 2) * sin(deltaLat / 2) +
+        cos(lat1) * cos(lat2) *
+        sin(deltaLon / 2) * sin(deltaLon / 2);
+
+    double c = 2 * atan2(sqrt(a), sqrt(1 - a));
+
+    return earthRadius * c;
+}

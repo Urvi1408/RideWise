@@ -1,36 +1,19 @@
 #include "Passenger.h"
-Passenger::Passenger(int id,string n,string pickup,string drop)
-{
-    passengerID=id;
-    name=n;
-    pickupLocation=pickup;
-    dropLocation=drop;
+
+Passenger::Passenger(int id, string n) {
+    passengerID = id;
+    name = n;
 }
 
-int Passenger::getID()
-{
+int Passenger::getID() const {
     return passengerID;
 }
 
-string Passenger::getPickup()
-{
-    return pickupLocation;
-}
-
-string Passenger::getName()
-{
+string Passenger::getName() const {
     return name;
 }
 
-string Passenger::getDrop()
-{
-    return dropLocation;
-}
-
-void Passenger::displayDetails()
-{
-    cout<<"\nPassenger ID: "<<passengerID;
-    cout<<"\nPassenger Name: "<<name;
-    cout<<"\nPickup: "<<pickupLocation;
-    cout<<"\nDestination: "<<dropLocation;
+void Passenger::displayDetails() const {
+    cout << "\nPassenger ID: " << passengerID;
+    cout << "\nPassenger Name: " << name;
 }

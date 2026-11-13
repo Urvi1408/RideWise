@@ -3,12 +3,25 @@
 Ride:: Ride(int rID,int pID,int dID,int cID,string pickup,string drop,double f)
 {
     rideID=rID;
-    passengerID=pID;
+    passengerIDs.push_back(pID);
     driverID=dID;
     cabID=cID;
     pickupLocation=pickup;
     dropLocation=drop;
     fare=f;
+    status = RideStatus::Pending;
+}
+
+Ride::Ride(int rID, vector<int> pIDs, int dID, int cID,
+           string pickup, string drop, double f)
+{
+    rideID = rID;
+    passengerIDs = pIDs;
+    driverID = dID;
+    cabID = cID;
+    pickupLocation = pickup;
+    dropLocation = drop;
+    fare = f;
     status = RideStatus::Pending;
 }
 
@@ -18,7 +31,11 @@ int Ride:: getRideID()
 }
 
 int Ride::getPassengerID() {
-    return passengerID;
+    return passengerIDs.empty() ? -1 : passengerIDs[0];
+}
+
+vector<int> Ride::getPassengerIDs() {
+    return passengerIDs;
 }
 
 int Ride::getDriverID() {
@@ -43,10 +60,13 @@ void Ride::setStatus(RideStatus s) {
 void Ride::displayDetails() {
 
     cout << "\nRide ID: " << rideID;
-    cout << "\nPassenger ID: " << passengerID;
+    cout << "\nPassenger IDs: ";
+
+    for (int id : passengerIDs) {
+        cout << id << " ";
+    }
     cout << "\nDriver ID: " << driverID;
     cout << "\nCab ID: " << cabID;
-
     cout << "\nPickup: " << pickupLocation;
     cout << "\nDestination: " << dropLocation;
 

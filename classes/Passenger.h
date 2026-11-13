@@ -9,18 +9,14 @@ class Passenger {
 private:
     int passengerID;
     string name;
-    string pickupLocation;
-    string dropLocation;
 
 public:
-    Passenger(int id, string n, string pickup, string drop);
+    Passenger(int id, string n);
 
-    int getID();
-    string getName();
-    string getPickup();
-    string getDrop();
+    int getID() const;
+    string getName() const;
 
-    void displayDetails();
+    void displayDetails() const;
 };
 
 #endif

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 enum class RideStatus {
@@ -15,7 +16,7 @@ enum class RideStatus {
 class Ride{
     private:
     int rideID;
-    int passengerID;
+    vector<int> passengerIDs;
     int driverID;
     int cabID;
     string pickupLocation;
@@ -25,8 +26,10 @@ class Ride{
 
     public:
     Ride(int rID,int pID,int dID,int cID,string pickup,string drop,double f);
+    Ride(int rID, vector<int> pIDs, int dID, int cID,string pickup, string drop, double f);
     int getRideID();
     int getPassengerID();
+    vector<int> getPassengerIDs();
     int getDriverID();
     int getCabID();
     double getFare();

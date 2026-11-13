@@ -1,4 +1,3 @@
-
 #ifndef GRAPH_H
 #define GRAPH_H
 
@@ -26,6 +25,7 @@ private:
     unordered_map<string, int> nodeIndex;
 
     int getOrCreateNode(double longitude, double latitude);
+
     double calculateDistance(
         double lat1, double lon1,
         double lat2, double lon2
@@ -38,7 +38,13 @@ public:
 
     int getNodeCount() const;
     int getEdgeCount() const;
+
     int findNearestNode(double longitude, double latitude) const;
+
+    double getDistanceToNearestNode(
+        double longitude,
+        double latitude
+    ) const;
 
     const vector<Node>& getNodes() const;
     const vector<vector<Edge>>& getAdjList() const;
